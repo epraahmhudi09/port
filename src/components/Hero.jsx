@@ -82,7 +82,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -left-6 top-8 rounded-2xl border border-white/10 bg-surface/90 px-4 py-3 shadow-2xl backdrop-blur"
+              className="absolute -right-6 bottom-9 rounded-2xl border border-white/10 bg-surface/90 px-4 py-3 text-right shadow-2xl backdrop-blur"
             >
               <p className="text-[11px] font-semibold uppercase tracking-wider text-white/60">Role</p>
               <p className="text-sm font-bold text-white">Fullstack Developer</p>
