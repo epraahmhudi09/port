@@ -56,6 +56,16 @@ export const PROJECTS = [
     tags: ['React', 'Firebase', 'Dashboard', 'System Development'],
     accent: 'white',
   },
+  {
+    key: 'ereseller',
+    title: 'E-Reseller',
+    tagline: 'Automated Amtel bundle reselling platform',
+    description:
+      'Customers pay via Golis SAHAL and their Amtel data bundle is delivered automatically — the system reads payment SMS, sends the bundle over USSD and confirms delivery, with customers, debts and live analytics in one dashboard.',
+    tags: ['React', 'Supabase', 'Automation', 'PWA'],
+    accent: 'red',
+    url: 'https://e-reseller.vercel.app/',
+  },
 ]
 
 export const SKILLS = [
@@ -73,7 +83,7 @@ export const SKILLS = [
 
 export const STATS = [
   { label: 'Services Offered', value: '3' },
-  { label: 'Projects Built', value: '2+' },
+  { label: 'Projects Built', value: '3+' },
   { label: 'Core Stack', value: 'React' },
   { label: 'Backend', value: 'Firebase' },
 ]

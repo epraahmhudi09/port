@@ -2,10 +2,19 @@ import { motion } from 'framer-motion'
 import { PROJECTS } from '../lib/content'
 import xisaabiyeLogo from '../assets/xisaabiye-logo.svg'
 import hudicrmLogo from '../assets/hudicrm-logo.svg'
+import ereseller from '../assets/ereseller-logo.svg'
+import { FiArrowUpRight } from 'react-icons/fi'
 
 const LOGOS = {
   xisaabiye: xisaabiyeLogo,
   hdcrm: hudicrmLogo,
+  ereseller: ereseller,
+}
+
+const ACCENTS = {
+  blue: { bg: 'from-blue-500/10 via-ink to-ink', glow: 'bg-blue-500/20' },
+  white: { bg: 'from-white/10 via-ink to-ink', glow: 'bg-white/15' },
+  red: { bg: 'from-red-500/10 via-ink to-ink', glow: 'bg-red-500/20' },
 }
 
 function ProjectVisual({ project }) {
@@ -23,6 +32,36 @@ function ProjectVisual({ project }) {
             { label: 'Stock', value: '84%', color: 'bg-blue-400' },
             { label: 'Sales Today', value: '72%', color: 'bg-blue-300' },
             { label: 'Dayn (Loan)', value: '45%', color: 'bg-white' },
+          ].map((row) => (
+            <div key={row.label}>
+              <div className="mb-1 flex justify-between text-[10px] text-white/50">
+                <span>{row.label}</span>
+                <span>{row.value}</span>
+              </div>
+              <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                <div className={`h-full rounded-full ${row.color}`} style={{ width: row.value }} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  if (project.key === 'ereseller') {
+    return (
+      <div className="flex h-full w-full items-center justify-center p-8">
+        <div className="w-full max-w-[240px] space-y-2.5 rounded-2xl border border-white/10 bg-ink/60 p-4 shadow-inner">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-white">E-Reseller</span>
+            <span className="rounded-full bg-red-500/20 px-2 py-0.5 text-[9px] font-semibold text-red-300">
+              LIVE
+            </span>
+          </div>
+          {[
+            { label: 'Payments Matched', value: '96%', color: 'bg-red-400' },
+            { label: 'Bundles Delivered', value: '88%', color: 'bg-white' },
+            { label: 'Auto-confirmed', value: '79%', color: 'bg-red-300' },
           ].map((row) => (
             <div key={row.label}>
               <div className="mb-1 flex justify-between text-[10px] text-white/50">
@@ -91,27 +130,27 @@ export default function Projects() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {PROJECTS.map((project, i) => {
-            const isWhiteAccent = project.accent === 'white'
+            const accent = ACCENTS[project.accent] ?? ACCENTS.blue
+            const linkProps = project.url
+              ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' }
+              : {}
             return (
-              <motion.div
+              <motion.a
                 key={project.key}
+                {...linkProps}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className="card group overflow-hidden"
+                className={`card group block overflow-hidden ${
+                  project.url ? 'cursor-pointer' : ''
+                } md:last:odd:col-span-2 md:last:odd:w-[calc(50%-1rem)] md:last:odd:justify-self-center`}
               >
                 <div
-                  className={`relative h-56 overflow-hidden border-b border-white/10 bg-gradient-to-br ${
-                    isWhiteAccent
-                      ? 'from-white/10 via-ink to-ink'
-                      : 'from-blue-500/10 via-ink to-ink'
-                  }`}
+                  className={`relative h-56 overflow-hidden border-b border-white/10 bg-gradient-to-br ${accent.bg}`}
                 >
                   <div
-                    className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-110 ${
-                      isWhiteAccent ? 'bg-white/15' : 'bg-blue-500/20'
-                    }`}
+                    className={`absolute -right-10 -top-10 h-40 w-40 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-110 ${accent.glow}`}
                   />
                   <ProjectVisual project={project} />
                 </div>
@@ -141,8 +180,15 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.url && (
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 transition-colors group-hover:text-blue-300">
+                      Visit live system
+                      <FiArrowUpRight className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </span>
+                  )}
                 </div>
-              </motion.div>
+              </motion.a>
             )
           })}
         </div>
