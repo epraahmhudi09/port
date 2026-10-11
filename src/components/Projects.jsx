@@ -3,7 +3,6 @@ import { PROJECTS } from '../lib/content'
 import xisaabiyeLogo from '../assets/xisaabiye-logo.svg'
 import hudicrmLogo from '../assets/hudicrm-logo.svg'
 import ereseller from '../assets/ereseller-logo.svg'
-import { FiArrowUpRight } from 'react-icons/fi'
 
 const LOGOS = {
   xisaabiye: xisaabiyeLogo,
@@ -180,13 +179,6 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-
-                  {project.url && (
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-400 transition-colors group-hover:text-blue-300">
-                      Visit live system
-                      <FiArrowUpRight className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </span>
-                  )}
                 </div>
               </motion.a>
             )
