@@ -130,20 +130,14 @@ export default function Projects() {
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {PROJECTS.map((project, i) => {
             const accent = ACCENTS[project.accent] ?? ACCENTS.blue
-            const linkProps = project.url
-              ? { href: project.url, target: '_blank', rel: 'noopener noreferrer' }
-              : {}
             return (
-              <motion.a
+              <motion.div
                 key={project.key}
-                {...linkProps}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: i * 0.12 }}
-                className={`card group block overflow-hidden ${
-                  project.url ? 'cursor-pointer' : ''
-                } md:last:odd:col-span-2 md:last:odd:w-[calc(50%-1rem)] md:last:odd:justify-self-center`}
+                className={`card group overflow-hidden md:last:odd:col-span-2 md:last:odd:w-[calc(50%-1rem)] md:last:odd:justify-self-center`}
               >
                 <div
                   className={`relative h-56 overflow-hidden border-b border-white/10 bg-gradient-to-br ${accent.bg}`}
@@ -180,7 +174,7 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             )
           })}
         </div>

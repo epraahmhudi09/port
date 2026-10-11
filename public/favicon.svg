@@ -1,5 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect x="6" y="6" width="88" height="88" rx="24" fill="#0A0A12" stroke="#FFFFFF" stroke-opacity="0.13" stroke-width="2"/>
-  <path d="M32 26C24 26 24 30 24 38V44C24 48 22 50 18 50C22 50 24 52 24 56V62C24 70 24 74 32 74M68 26C76 26 76 30 76 38V44C76 48 78 50 82 50C78 50 76 52 76 56V62C76 70 76 74 68 74" fill="none" stroke="#60A5FA" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40 36V64M60 36V64M40 50H60" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+  <circle cx="50" cy="50" r="39" fill="none" stroke="#60A5FA" stroke-width="10" stroke-dasharray="15.315 15.315" stroke-dashoffset="7.66"/>
+  <circle cx="50" cy="50" r="34" fill="url(#g)"/>
+  <circle cx="50" cy="50" r="24" fill="#0A0A12"/>
+  <path d="M42 41L34 50L42 59M58 41L66 50L58 59M53 38L47 62" fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

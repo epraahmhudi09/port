@@ -1,16 +1,37 @@
+import { useId } from 'react'
+
 export default function Logo({ className }) {
+  const gradId = useId()
+
   return (
     <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
-      <rect x="6" y="6" width="88" height="88" rx="24" fill="#0A0A12" stroke="#FFFFFF" strokeOpacity="0.13" strokeWidth="2" />
-      <path
-        d="M32 26C24 26 24 30 24 38V44C24 48 22 50 18 50C22 50 24 52 24 56V62C24 70 24 74 32 74M68 26C76 26 76 30 76 38V44C76 48 78 50 82 50C78 50 76 52 76 56V62C76 70 76 74 68 74"
+      <defs>
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#1D4ED8" />
+          <stop offset="100%" stopColor="#60A5FA" />
+        </linearGradient>
+      </defs>
+
+      <circle
+        cx="50"
+        cy="50"
+        r="39"
         fill="none"
         stroke="#60A5FA"
-        strokeWidth="6"
+        strokeWidth="10"
+        strokeDasharray="15.315 15.315"
+        strokeDashoffset="7.66"
+      />
+      <circle cx="50" cy="50" r="34" fill={`url(#${gradId})`} />
+      <circle cx="50" cy="50" r="24" fill="#0A0A12" />
+      <path
+        d="M42 41L34 50L42 59M58 41L66 50L58 59M53 38L47 62"
+        fill="none"
+        stroke="#FFFFFF"
+        strokeWidth="4.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M40 36V64M60 36V64M40 50H60" stroke="#FFFFFF" strokeWidth="8" strokeLinecap="round" />
     </svg>
   )
 }
