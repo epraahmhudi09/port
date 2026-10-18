@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { PROJECTS } from '../lib/content'
 import xisaabiyeLogo from '../assets/xisaabiye-logo.svg'
 import hudicrmLogo from '../assets/hudicrm-logo.svg'
-import ereseller from '../assets/ereseller-logo.svg'
+import ereseller from '../assets/ereseller-logo.png'
 
 const LOGOS = {
   xisaabiye: xisaabiyeLogo,
@@ -13,7 +13,6 @@ const LOGOS = {
 const ACCENTS = {
   blue: { bg: 'from-blue-500/10 via-ink to-ink', glow: 'bg-blue-500/20' },
   white: { bg: 'from-white/10 via-ink to-ink', glow: 'bg-white/15' },
-  red: { bg: 'from-red-500/10 via-ink to-ink', glow: 'bg-red-500/20' },
 }
 
 function ProjectVisual({ project }) {
@@ -53,14 +52,14 @@ function ProjectVisual({ project }) {
         <div className="w-full max-w-[240px] space-y-2.5 rounded-2xl border border-white/10 bg-ink/60 p-4 shadow-inner">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-white">E-Reseller</span>
-            <span className="rounded-full bg-red-500/20 px-2 py-0.5 text-[9px] font-semibold text-red-300">
+            <span className="rounded-full bg-blue-400/20 px-2 py-0.5 text-[9px] font-semibold text-blue-300">
               LIVE
             </span>
           </div>
           {[
-            { label: 'Payments Matched', value: '96%', color: 'bg-red-400' },
+            { label: 'Payments Matched', value: '96%', color: 'bg-blue-400' },
             { label: 'Bundles Delivered', value: '88%', color: 'bg-white' },
-            { label: 'Auto-confirmed', value: '79%', color: 'bg-red-300' },
+            { label: 'Auto-confirmed', value: '79%', color: 'bg-blue-300' },
           ].map((row) => (
             <div key={row.label}>
               <div className="mb-1 flex justify-between text-[10px] text-white/50">

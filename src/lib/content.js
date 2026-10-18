@@ -63,7 +63,7 @@ export const PROJECTS = [
     description:
       'Customers pay via Golis SAHAL and their Amtel data bundle is delivered automatically — the system reads payment SMS, sends the bundle over USSD and confirms delivery, with customers, debts and live analytics in one dashboard.',
     tags: ['React', 'Supabase', 'Automation', 'PWA'],
-    accent: 'red',
+    accent: 'blue',
   },
 ]
 
